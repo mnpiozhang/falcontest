@@ -18,6 +18,10 @@ channel.exchange_declare(exchange='hello-exchange',
 msg = json.dumps({"key1":"abc","key2":123})
 msg_props = pika.BasicProperties()
 msg_props.content_type = "text/plain"
+#这里消息没有持久化
+#如果需要消息持久化 那么就加上下面的配置
+#msg_props.delivery_mode = 2
+
 
 channel.basic_publish(exchange='hello-exchange',
                       body=msg,

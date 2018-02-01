@@ -21,6 +21,7 @@ channel.exchange_declare(exchange='hello-exchange',
 msg = sys.argv[1]
 msg_props = pika.BasicProperties()
 msg_props.content_type = "text/plain"
+#消息持久化了
 msg_props.delivery_mode = 2
 
 if channel.basic_publish(exchange='hello-exchange',

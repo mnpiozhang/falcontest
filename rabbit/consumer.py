@@ -15,7 +15,7 @@ channel.exchange_declare(exchange='hello-exchange',
                          durable=True,
                          auto_delete=False)
 
-channel.queue_declare(queue="hello-queue")
+channel.queue_declare(queue="hello-queue", durable=True)
 channel.queue_bind(queue="hello-queue",exchange='hello-exchange',routing_key='hola')
 
 def msg_consumer(channel,method,properties,body):
